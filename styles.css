@@ -29,8 +29,11 @@ main {
 
 section {
     margin-bottom: 1rem;
-    color: #ff0070;
-    
+    color: #ff0070;    
+}
+
+.key{
+    white-space: pre-line;
 }
 
 section a{
