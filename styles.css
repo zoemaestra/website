@@ -52,6 +52,10 @@ section {
     color: var(--blog-highlight-colour);
 }
 
+.sub {
+    color: var(--blog-text-colour);
+}
+
 figure {
     margin: 1.5rem 0;
 }
@@ -88,3 +92,7 @@ img {
     margin: 0 auto;
 }
 
+hr {
+    border: 1px solid var(--main-colour);
+    width: 90%;
+}
