@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>imzoe.me - blogpost</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" type="text/css" media="print">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1><a href="../../index.html">imzoe.me</a> blogpost</h1>
+            <h1>Root & EDL access on the Snapmaker 2.0 touchscreen</h1>
+            <p>Dec. 02, 2025</p>
+
+            <figure>
+                <img class="responsive-img" src="./snapmaker.png"
+                    alt="Snapmaker 2.0 touchscreen displaying the Android 7.1 easter egg"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+
+            <p class="blogpost">I <a href="https://imzoe.me/blog/snapbreaker/snapbreaker">wrote a post</a> about rooting the Snapmaker 2.0 handset, but didn't describe the process you should use to do the same. This post will be a guide on how to do it, but it will assume you have the SnapBreaker USB jig that I sell on my store as well as a PC.
+            You don't <i>need</i> the USB jig, but it definitely makes it easier and has other features to help you out. I'm a little biased, but I think it's great.</p>
+            <p class="blogpost">I've compiled all the harder to get software into one .zip for your convenience too. You'll need to download it <a href="https://mega.nz/file/xyYHGCAK#4rapTxNdpGwvQ_4ix0cbtxNqFfRe86VNjPlR8qBL8mY">from here</a>.</p>
+
+            <p class="blogpost"><h3>Step zero - Important Links</h3></p>
+            <p class="blogpost"><a href="https://developer.android.com/studio/releases/platform-tools">ADB and Fastboot</a></p>
+            <p class="blogpost"><a href="https://github.com/bkerler/edl">Unofficial CLI EDL</a></p>
+            <p class="blogpost"><a href="https://github.com/daynix/UsbDk/releases/tag/v1.00-22">USBDK</a></p>
+            <p class="blogpost"><a href="https://zadig.akeo.ie/">Zadig</a></p>
+            <p class="blogpost"><a href="https://mega.nz/file/dy40naJA#3Jhqu4qnoAggO9wfoTg7BD7gGWX1j7wVQlDGTCaWT00">EDL loader file for the Snapmaker 2.0 touchscreen (HMI.firehose.mbn)</a></p>
+            <p class="blogpost"><a href="https://github.com/topjohnwu/Magisk/releases/tag/v23.0">Magisk-v23.0.apk (newer versions won't work!)</a></p>
+
+            <p class="blogpost"><h3>Step one - Developer Options</h3></p>
+            <p class="blogpost">First, you need to get into Android's settings and enable developer options. <a href="https://forum.snapmaker.com/t/guide-how-to-install-apps-on-your-snapmaker-2-0-lcd-access-android-part-of-lcd/">nweolu on the Snapmaker forums</a> has described how to get out of the default home screen, but tl;dr:
+            plug in a USB keyboard into the controller's USB A port and enter WIN+N to open the quick settings menu. Pull it down, open the settings app and scroll down to "About device". Spam tap the "Build number" until it says you are now a developer. Tap the hamburger menu in the top left corner and scroll to developer options
+            and open it.</p>
+
+            <p class="blogpost"><h3>Step two - Android Debug Bridge</h3></p>
+            <p class="blogpost">Next, we will need to enable communication between the touchscreen and a PC. In developer options, scroll down to "USB debugging" and enable it. Scroll down to "OEM Unlocking" and make sure that is enabled too. Then scroll to "Default USB configuration" and set it to MTP.</p>
+            <p class="blogpost">At this point, we will need to connect the touchscreen to a PC. Connect it to the USB jig, and then the USB jig to a PC. Make sure the switch on it is set to the OFF position and once the touchscreen has gone from the S logo to the Snapmaker text, set it to ON. If you don't have the jig, you can achieve this by
+                 connecting the USB data lines, USB 5V (not VBUS!) and ground to your PC and shorting USB ID on the USB-C to 5V a few seconds after the touchscreen has gone from the S logo to the Snapmaker text. If it stays stuck on the S logo, you're doing it wrong! Flip the switch to the opposite state of whatever it is currently in, unplug and retry.
+            </p>
+            <p class="blogpost">On your PC, you will need to have ADB on your PC. You can get it as part of the Android SDK Platform Tools linked in the first section. Alternatively, there is an unofficial installer that will install it systemwide <a href="https://github.com/fawazahmed0/Latest-adb-fastboot-installer-for-windows">here</a>.
+                Once you have it installed, open a terminal/command prompt in the platform-tools folder (on Windows, shift+right click in the folder to get an option to open CMD/PowerShell/Terminal in that folder, assuming you don't have adb on your path already) and run the command <code>adb devices</code>.
+                You should see a device listed as unauthorized. On the touchscreen, you should see a prompt asking you to allow USB debugging. Allow it and run the command again. You should now see the device listed as authorized.</p>
+
+            <figure>
+                <img class="responsive-img" src="./adb.png"
+                    alt="Windows terminal showing adb devices with an authorized Snapmaker 2.0 touchscreen"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+            
+            <p class="blogpost">ADB can be a powerful tool, and it is extremely useful outside of this guide too. If you want to learn more about it, check out <a href="https://developer.android.com/studio/command-line/adb">the official documentation</a>.
+            One thing that is particularly useful is being able to send navigation keyevents so you can nagivate the UI despite not having software or hardware buttons.
+            You can do this with the command <code>adb shell input keyevent &lt;keycode&gt;</code>. E.g., to go back one screen, use <code>adb shell input keyevent KEYCODE_BACK</code>. A list of keycodes can be found <a href="https://developer.android.com/reference/android/view/KeyEvent#KEYCODE_BACK">here</a>.</p>
+            </p>
+            
+            <p class="blogpost"><h3>Step three - EDL mode</h3></p>
+            <p class="blogpost">EDL (Emergency DownLoad) mode is a low level feature of Qualcomm SoCs used for unbricking phones. Here, we will use it to make a full backup in case of fuck ups and flash a patched boot partition.</p>
+            <p class="blogpost">It is <b>important to note</b> it has a timeout/lockout feature where if you enter a command that fails or you wait too long to send a command (15 seconds, I think?) it will fail to work and you will have to reboot it and re-enter EDL. To exit EDL, just unplug the handset and plug it back in. Remember the USB switch needs to be reset!</p>
+            <p class="blogpost">For this, your PC will need the unofficial edl package installed and set up on your PC. It's finnicky on Windows, but if you follow the automatic PowerShell instructions in the GitHub readme you should be ok.
+            </p>
+            <p class="blogpost">Once set up, run <code>edl printgpt --loader=C:\Path\to\your\HMI.firehose.mbn</code> replacing the loader path with wherever it is you've saved it. You can drag and drop it into the command window to autocomplete the path. If you get a NotImplementedError, you need to install USBDK and Zadig
+                plus you need to install the libusb_win32 driver from Zadig. Open Zadig, go to Options > List all devices, select the 9008 device from the list and replace the driver with the libusb-win32 driver by cycling through the replacement drivers with the little arrow buttons. Then click Replace Driver.
+            </p>
+
+            <figure>
+                <img class="responsive-img" src="./zadig.png"
+                    alt="Screenshot of Zadig with the QDLoader 9008 device selected and libusb-win32 as the selected driver"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+
+            <p class="blogpost">Once it has been installed, run <code>adb reboot edl</code> and it should reboot to a black screen. In Windows device manager, you should see a device called QDLoader 9008 (or something along those lines) appear under a COM port. If not, you may have to manually tell Windows to use the right driver by right clicking the device that corresponds to it
+                and selecting the correct driver.
+            </p>
+
+            <figure>
+                <img class="responsive-img" src="./9008.png"
+                    alt="Device manager screenshot showing the device with the right driver"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+
+            <p class="blogpost">You may need to reboot your PC after doing all that to refresh things. Once you have the device showing up properly, run <code>edl printgpt --loader=C:\Path\to\your\HMI.firehose.mbn</code> again and it should print out the partition table (assuming it didn't work perfectly before. being realistic, it probably didn't, lol).
+            </p>
+
+            <p class="blogpost"><h3>Step four - actually rooting the thing</h3></p>
+
+            <p class="blogpost">It's a great time to make a full backup now! It may take a while, but it's necessary since we need to patch the boot partition.
+                Run <code>edl rl "C:\Path\To\Backup\Folder" --loader="C:\Path\to\your\HMI.firehose.mbn" --genxml</code> to dump everything. You can append <code>--skip=userdata</code> to skip the user data partition.
+            </p>
+            <p class="blogpost">Go to your backup folder, copy boot.bin and rename the copy to boot.img. Then, on the touchscreen, install Magisk Manager v23.0 (linked at the top, newer versions won't work!) with <code>adb install "C:\Path\to\your\magisk.apk"</code> and open it. Select Install > Select and Patch a File, then select the boot.img file you just made a copy of. Don't check the AVB/DM verity box.
+                Magisk will patch it and save it to your Downloads folder as boot_patched.img and then copy that file back to your PC.
+            </p>
+            <p class="blogpost">Now we'll flash the patched boot image. Run <code>edl w boot "C:\Path\to\your\boot_patched.img" --loader="C:\Path\to\your\HMI.firehose.mbn"</code> and do not unplug the touchscreen or you're fucked. Once it has finished successfully, just unplug the touchscreen and open up the Magisk Manager app to verify that it has been rooted.
+            </p>
+            <figure>
+                <img class="responsive-img" src="./magisk.png"
+                    alt="Device manager screenshot showing the device with the right driver"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+            <p class="blogpost">If you've made it this far, congrats! Your Snapmaker 2.0 touchscreen is properly rooted and you can do all kinds of silly things with it.
+            </p>
+
+            <h3><a href="../../blog.html">Read more blog posts</a></h3>
+    </main>
+</body>
+</html>

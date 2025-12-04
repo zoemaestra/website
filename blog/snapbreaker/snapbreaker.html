@@ -24,8 +24,9 @@
                     alt="Snapmaker 2.0 touchscreen displaying the Android 7.1 easter egg"
                     width="800" height="450"
                     loading="lazy" decoding="async"
-                    sizes="(max-width: 600px) 100vw, 800px">
-                <figcaption>Snapmaker 2.0 touchscreen showing the Android 7.1 easter egg.</figcaption>
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
             </figure>
 
             <p class="blogpost">I own a <a href="https://www.snapmaker.com/en-US/snapmaker-2">Snapmaker 2.0 A250T</a>. It's a 3-in-1 CNC machine that does 3D printing, laser cutting/engraving and CNC routing. It's a nice, sleek feeling machine with plenty of aluminium but it has a few quirks - one of them being that it is run via an Android 7.1 handset.
@@ -37,12 +38,14 @@
                 I spent time working out how to root it with Magisk and pull images of the partitions, so I'd be safe no matter how badly I messed up. A lot has been documented in the <a href="https://github.com/shurushetr/awesome-snapmaker/">awesome snapmaker repo</a>, including understanding the pinout of the non conventional USB-C connector the touchscreen (what Snapmaker refers to as the HMI).</p>
 
             <figure>
+                <a href="https://github.com/shurushetr/awesome-snapmaker/blob/main/images/Snapmaker_Parts/SP_2.0/SM_2.0_Touchscreen_PCB.jpg">
                 <img class="responsive-img" src="./hmipcb.png"
                     alt="Image of the inside the touchscreen (HMI), showing the main PCB with the USB-C pinout"
                     width="800" height="450"
                     loading="lazy" decoding="async"
                     sizes="(max-width: 600px) 100vw, 800px">
-                <figcaption>Inside the touchscreen (HMI) - <a href="https://github.com/shurushetr/awesome-snapmaker/blob/main/images/Snapmaker_Parts/SP_2.0/SM_2.0_Touchscreen_PCB.jpg">original link</a></figcaption>
+                </a>
+                <figcaption></figcaption>
             </figure>
 
             <p class="blogpost">The PCB is dominated by the Quectel SC20 - an all in one Android module designed for applications like these. Because of their nature, they're well documented and PDFs of the pinouts exist online which give you a great understanding of how it can be made to work. More importantly, it can be put into Qualcomm's EDL mode - a special recovery mode that, with the right files,
@@ -63,7 +66,7 @@
                     width="800" height="450"
                     loading="lazy" decoding="async"
                     sizes="(max-width: 600px) 100vw, 800px">
-                <figcaption>Screenshot of QFIL</figcaption>
+                <figcaption></figcaption>
             </figure>
             <p class="blogpost">Naturally, they don't really like people having the programmer files for QFIL considering how great of a security risk it poses. I asked Quectel nicely if I could have them, but I went ignored. So, I turned to trial and error. Many of the programmer files for various phones have been leaked online, so
                 I muddled my way through trying many of them from phones with the SD210 SoC. Eventually, I found that the <a href="https://github.com/bkerler/Loaders/blob/main/zte/000460e100040000_168d0bad52b5d5cb_fhprg_peek.bin">programmer file for the ZTE Blade A460 worked flawlessly.</a> This, paired with an <a href="https://github.com/bkerler/edl">unofficial implementation of the Qualcomm Sahara protocol</a>
@@ -85,12 +88,14 @@
                     width="800" height="450"
                     loading="lazy" decoding="async"
                     sizes="(max-width: 600px) 100vw, 800px">
-                <figcaption>Magisk showing a successful root!</figcaption>
+                <figcaption></figcaption>
             </figure>
              <p class="blogpost">
                 The critical part of this all was messing with the USB, and that isn't really replicable without some hardware skills. I plan on selling a Snapmaker 2.0 USB multitool (which I've affectionately called SnapBreaker) soon that not only allows you to force host mode but also acts as a deep flash cable and can spoof a touchscreen, so the machine can still work if you've broken yours for whatever reason.
                 It's still a WIP, but I should have them out fairly soon. My prototypes came back and they work great!
              </p>
+             
+             <h3><a href="../../blog.html">Read more blog posts</a></h3>
     </main>
 </body>
 </html>
