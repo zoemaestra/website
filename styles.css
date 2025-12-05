@@ -1,4 +1,3 @@
-/* Global Styles */
 :root{
     --main-colour:#ff0070;
     --blog-text-colour:#FFD9EA;
@@ -21,7 +20,6 @@ body {
     background-color: var(--bg-colour);
 }
 
-/* Main Content */
 main {
     display: flex;
     flex-direction: column;
@@ -40,6 +38,8 @@ main {
 section {
     margin-bottom: 1rem;
     color: var(--main-colour);
+    max-width: 100%;
+    overflow-wrap: break-word
 }
 
 .blogpost {
@@ -67,6 +67,7 @@ figcaption {
 }
 
 .key{
+    color: var(--blog-text-colour);
     text-align: left;
     white-space: pre-line;
 }
