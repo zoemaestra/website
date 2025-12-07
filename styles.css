@@ -42,7 +42,7 @@ section {
     overflow-wrap: break-word
 }
 
-.blogpost {
+.blogpost, ul {
     align-items: start;
     justify-content: left;
     text-align: left;
