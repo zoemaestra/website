@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>imzoe.me - electrolysis (assembly)</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" type="text/css" media="print">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1><a href="../../index.html">imzoe.me</a> <a href="../../blog.html">blog</a> <a href="../../projects.html">projects</a> <a href="https://shop.imzoe.me/">shop</a></h1>
+            <hr class="solid">
+            <h1>DIY Electrolysis</h1>
+
+            <h3>Components</h3>
+
+            <p class="blogpost"><a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c">Github repo</a></p>
+            <p class="blogpost">There are several parts you need to source yourself. These are as follows:</p>
+            <ul>
+                <li><a href="https://www.aliexpress.com/item/1005009796959203.html">2x 6mmX6mmX4.3mm SMD push button</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005008583446552.html">EC11 Rotary Encoder (15mm Plum Handle)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005010455369321.html">SPDT slide switch</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005007202635800.html">Buzzer</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005011829285007.html">4x M3 14-18mm countersunk screws</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005008409259590.html">Tens pad</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005010314321379.html">Tens cable (with the pin connector - the other end doesn't matter)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005006827999782.html">0.96in SSD1306 OLED (colour doesn't matter)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005009644645489.html">2 pole 3.5mm jack</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005006258349200.html">Foot pedal</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005005888991575.html">Enough wire for the foot pedal and stylus (I used about 3m total for the foot pedal and 2m total for the stylus)</a></li>
+                <li><a href="https://www.ebay.co.uk/itm/295937241729">D-Sub Female Contacts (24-20 AWG, loose and not in a connector)</a></li>
+                <li><a href="https://www.astonandfincher.co.uk/products/sterex-stainless-steel-two-piece-electrolysis-needles-50">F4/F4S electrolysis needles</a></li>    
+                <li><a href="https://www.aliexpress.com/item/1005006420239523.html">3.7V 350mAh 1S LiPo battery</a></li>
+            </ul>
+            <p class="blogpost">The D subs can be annoying to get. I got some Harting ones from eBay, but other electronics retailers like CPC, Farnell, DigiKey and Mouser should stock them.
+                They vary in shape but should all work as long as they are the individual contact and not a whole connector.
+            </p>
+            <p class="blogpost">The needles themselves are consumables and can be expensive. Both Ballet and Sterex will work, as long as they have an F4 shank.</p>
+
+            <h3>Soldering the PCB</h3>
+            <p class="blogpost">Place the OLED, rotary encoder, push buttons, slide switch and battery on the PCB in their spots as designated by the silkscreen and solder them in place. All components solder to the top side, except for the battery (red wire is positive, black is negative).</p>
+            <p class="blogpost">If you've never soldered before, watch some YouTube tutorials and practice a bit on some old scrap.</p>
+
+            <h3>Soldering the pedal and stylus</h3>
+            <p class="blogpost">A diagram is easier to follow than my yap here.</p>
+            <figure>
+                <img class="responsive-img" src="./diagram.png"
+                    alt="A crudely made paint.net diagram showing how to wire the pedal and stylus to the PCB"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+            <p class="blogpost">The D sub should be soldered to the tip of a 3.5mm jack with approx. 1m of wire. The tens connector should be soldered to the sleeve of the same 3.5mm jack.</p>
+            <p class="blogpost">The normally open (NO) terminal of the foot pedal switch should be soldered to the tip of the other 3.5mm jack with approx. 1.5m of wire, and the common (C) terminal to the sleeve of the same jack with the same amount of wire.</p>
+            
+            <h3>3D Printing</h3>
+            <p class="blogpost">The case, knob and stylus all need to be 3D printed. Print in the default orientation. PLA is fine for this.</p>
+            <p class="blogpost">The assembled PCB can be slid into the case and then closed with the screws. Slide the knob onto the rotary encoder.</p>
+            <p class="blogpost">Put the soldered D sub with wire into one half of the printed stylus and glue it in place. Wait for the glue to cure before glueing the other half of the stylus. Once the stylus is assembled, you can put a needle in.</p>
+
+            <h3>Firmware</h3>
+            <p class="blogpost">The firmware can be flashed to the device using a USB-C cable. The device will show up as a USB device when plugged in while holding down the boot (top) button. Copy the .uf2 file from the Github repo to the drive and it will flash automatically. If you have issues, look up troubleshooting online for flashing .uf2 firmware to an RP2040.</p>
+
+            <h4><a href="electrolysis.html">Return to main page</a></h4>
+    </main>
+</body>
+</html>

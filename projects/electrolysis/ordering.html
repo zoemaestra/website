@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>imzoe.me - blogpost</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" as="style" type="text/css" media="print">
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    <main>
+        <section>
+            <h1><a href="../../index.html">imzoe.me</a> <a href="../../blog.html">blog</a> <a href="../../projects.html">projects</a> <a href="https://shop.imzoe.me/">shop</a></h1>
+            <hr class="solid">
+            <h1>DIY Electrolysis - Parts & Ordering</h1>
+
+            <p class="blogpost"><a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c">Github repo</a></p>
+
+            <p class="blogpost">This was designed to be ordered via JLCPCB and assembled with their PCBA service. You can hand solder this, but it will be more time-consuming.
+                Unless you know what you're doing, I strongly recommend sticking to JLCPCB's PCBA service.</p>
+            </p>
+            <h3>Uploading the PCB</h3>
+            <p class="blogpost">Go to the Github repo and go to the <a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c/releases">releases section</a> to download the latest version.
+            Download all the files except the source code.</p>
+            <p class="blogpost">Go to <a href="https://jlcpcb.com/">JLCPCB</a> and sign up for an account. Then once you're done, click on the "order now" button. Upload the hair-electrolysis-machine.zip file. It may take a few moments.</p>
+            <p class="blogpost">Leave the settings on their defaults, unless you know what you're doing.</p>
+            <p class="blogpost">One thing you can change risk free is the PCB colour! Choose whatever you like, it's free to change but may take a few days extra to arrive.</p>
+            <p class="blogpost">At the bottom of the page, check the toggle switch for PCB Assembly.</p>
+            <p class="blogpost">Check the "PCB Build Time" option to make sure it is what you want. You can pay more to get it faster, but I don't. Ignore the shipping quote for now.</p>
+            <p class="blogpost">Check your PCB assembly options - 'PCBA Qty' should be however many you want assembled. If you order 5 boards (min. quantity is 5) and only assemble 2, you'll get 3 bare boards and 2 assembled ones.</p>
+            <p class="blogpost">Other options can be left on their defaults. You may want to also check the options to have staff review the board before going into production if you're unsure.</p>
+            
+            <h3>The BOM</h3>
+            <p class="blogpost">You should be presented with the bare board on screen. The tab at the top should say "PCB". Click next.</p>
+            <p class="blogpost">You will be put into the Bill of Materials (BOM) tab. Click "Add BOM file" and upload bom.xls (which you previously downloaded from the releases section on Github). Then, click "Add CPL file" and upload positions.csv.</p>
+            <p class="blogpost">JLCPCB will present you with a table of parts. The majority, if not all, should be autofilled.</p>
+            <p class="blogpost">Check over each one and make sure they have enough stock of each. Some things they might not have enough of - this can be annoying,
+                but you will have to find an alternative part. In most cases, you can just search <a href="https://jlcpcb.com/parts">the parts library</a> for a like-for-like replacement.</p>
+            <p class="blogpost">If you do this pay attention to the part footprint and the other specs of the part to make sure it will work. A lot of parts have clone variants with extremely similar names that will work as alternatives.</p>
+
+            <p class="blogpost">Once you and the site are hapy with the BOM, click next at the bottom of the page.</p>
+            
+            <h3>Component Placement</h3>
+            <p class="blogpost">For whatever reason, some parts will not be oriented correctly and you need to fix that yourself.</p>
+            <p class="blogpost">The usual suspects are the two 3.5mm jacks, the type C port and U1 (RP2040). Below is how it should look:</p>
+
+            <figure>
+                <img class="responsive-img" src="./pcba.png"
+                    alt="PCBA placement diagram"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption></figcaption>
+            </figure>
+
+            <p class="blogpost">Select a part that isn't aligned correctly and use the arrow keys in the top right to align it. View it from the top and bottom to make sure everything is in the right hole.</p>
+            <p class="blogpost">J1 needs to be shuffled right (towards the centre of the board), J3 and J7 need to be rotated 180 degrees and moved towards the centre, and U1 needs the dark circle on it to be rotated so it is next to the purple circle on the PCB. All other ICs on the board with a circle on them need to be aligned with the purple circles/white triangles on the PCB, but they typically are by default.</p>
+            <p class="blogpost">Once all is aligned, click next.</p>
+
+            <h3>Ordering</h3>
+            <p class="blogpost">You will be presented with a summary of your order. Check over it and make sure everything is correct. If you are happy, click "Add to Cart".</p>
+            <p class="blogpost">Select both the PCB and Assembly checkboxes and then click "Secure Checkout".</p>
+            <p class="blogpost">Here you can review the shipping method. I go with the cheapest, but that will obviously take longer.</p>
+
+            <h4><a href="electrolysis.html">Return to main page</a></h4>
+            <p class="blogpost"></p>
+    </main>
+</body>
+</html>
