@@ -96,6 +96,6 @@ img {
 }
 
 hr {
-    border: 1px solid var(--main-colour);
+    border: 1px solid var(--blog-text-colour);
     width: 90%;
 }
