@@ -30,20 +30,16 @@
 
             <p class="blogpost">There are several parts you need to source yourself. These are as follows:</p>
             <ul>
-                <li><a href="https://www.aliexpress.com/item/1005009796959203.html">2x 6mmX6mmX4.3mm SMD push button</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005008583446552.html">EC11 Rotary Encoder (15mm Plum Handle)</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005010455369321.html">SPDT slide switch</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005002666696107.html">Buzzer (3v)</a></li>
                 <li><a href="https://www.aliexpress.com/item/1005011829285007.html">4x M3 14-18mm countersunk screws</a></li>
                 <li><a href="https://www.aliexpress.com/item/1005008409259590.html">Tens pad</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005010314321379.html">Tens cable (with the pin connector - the other end doesn't matter)</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005006827999782.html">0.96in SSD1306 OLED (colour doesn't matter)</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005009644645489.html">2 pole 3.5mm jack</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005006258349200.html">Foot pedal</a></li>
-                <li><a href="https://www.aliexpress.com/item/1005005888991575.html">Enough wire for the foot pedal and stylus (I used about 3m total for the foot pedal and 2m total for the stylus)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005010314321379.html">Tens cable (with the pin connector and 2.5mm jack)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005006827999782.html">0.96in SSD1306 OLED (colour doesn't matter, but the pins do! Ground, VCC (power), SCL, SDA.)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005009644645489.html">2x 3.5mm jack</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005006258349200.html">Foot pedal (optional, but recommended)</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005005888991575.html">Enough wire for the stylus and foot pedal (I used about 3m total for the foot pedal and 1m total for the stylus)</a></li>
                 <li><a href="https://www.ebay.co.uk/itm/295937241729">D-Sub Female Contacts (24-20 AWG, loose and not in a connector)</a></li>
                 <li><a href="https://www.astonandfincher.co.uk/products/sterex-stainless-steel-two-piece-electrolysis-needles-50">F4/F4S/F5 electrolysis needles</a></li>    
-                <li><a href="https://www.aliexpress.com/item/1005006420239523.html">3.7V 350mAh 1S LiPo battery</a></li>
+                <li><a href="https://www.aliexpress.com/item/1005006420239523.html">3.7V 350mAh 1S LiPo battery with JST-PH connector</a></li>
             </ul>
             <p class="blogpost">The D-subs can be annoying to get. I got some Harting ones from eBay, but other electronics retailers like CPC, Farnell, DigiKey, and Mouser should stock them.
                 They vary in shape but should all work as long as they are the individual contact and not a whole connector.
@@ -52,34 +48,26 @@
                 but F5 should work too and might be a little better for coarse hair.
             </p>
 
-            <h3>Soldering the PCB</h3>
-            <p class="blogpost">Place the <strong>OLED</strong>, <strong>rotary encoder</strong>, <strong>push buttons</strong>, <strong>slide switch</strong>, and <strong>battery</strong> on the PCB in their spots as designated by the silkscreen and solder them in place. All components solder to the top side, except for the battery (red wire is positive, black is negative).</p>
-            <p class="blogpost">If you've never soldered before, watch some YouTube tutorials and practice a bit on some old scrap.</p>
+            <h3>Assembling the PCB</h3>
+            <p class="blogpost">Place the <strong>OLED</strong> and <strong>battery</strong> into their respective connectors on the PCB. 
+                Make sure your battery connector has the correct polarity, you can just make sure the red wire connects to the + on the 
+                board and the black one to the -. You should also make sure the OLED's pins match what is on the board, or you could fry it.</p>
 
             <h3>Soldering the pedal and stylus</h3>
-            <p class="blogpost">A diagram is easier to follow than my yap here.</p>
-            <figure>
-                <img class="responsive-img" src="./diagram.png"
-                    alt="A crudely made paint.net diagram showing how to wire the pedal and stylus to the PCB"
-                    width="800" height="450"
-                    loading="lazy" decoding="async"
-                    sizes="(max-width: 600px) 100vw, 800px"
-                    >
-                <figcaption></figcaption>
             </figure>
-            <p class="blogpost">The D-sub (needle holder for the pen, aka the follicle electrode) should be soldered to the <strong>sleeve</strong> of a 3.5mm jack with approx. 1m of wire. The TENS connector (body electrode) should be soldered to the <strong>tip</strong> of the same 3.5mm jack.</p>
-            <p class="blogpost">The <strong>normally open (NO)</strong> terminal of the foot pedal switch should be soldered to the <strong>tip</strong> of the other 3.5mm jack with approx. 1.5m of wire, and the <strong>common (C)</strong> terminal to the <strong>sleeve</strong> of the same jack with the same amount of wire.</p>
+            <p class="blogpost">The D-sub (needle holder for the pen, aka the follicle electrode) should be connected to all the connections on a 3.5mm jack with approx. 1m of wire.</p>
+            <p class="blogpost">If you are building the optional foot pedal, then the <strong>normally open (NO)</strong> terminal of the foot pedal switch should be soldered to the <strong>tip</strong> of the other 3.5mm jack with approx. 1.5m of wire, and the <strong>common (C)</strong> terminal to the <strong>sleeve</strong> of the same jack with the same amount of wire.</p>
             
             <h3>3D Printing</h3>
             <p class="blogpost">All the 3D models can be found in the <a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c/tree/main/3dprint">Github repo</a>.</p>
             <p class="blogpost">The <strong>case</strong>, <strong>knob</strong>, and <strong>stylus</strong> all need to be 3D printed. Print in the default orientation. PLA is fine for this.</p>
             <p class="blogpost">The assembled PCB can be slid into the case and then closed with the screws. Slide the knob onto the rotary encoder.</p>
-            <p class="blogpost">Put the soldered D-sub with wire into one half of the printed stylus and glue it in place. Wait for the glue to cure before gluing the other half of the stylus. Once the stylus is assembled, you can put a needle in.</p>
+            <p class="blogpost">Put the soldered D-sub with wire into one half of the printed stylus and glue it in place. Wait for the glue to cure before gluing the other half of the stylus. Once the stylus is assembled, you can (CAREFULLY!) put a needle in.</p>
 
             <h3>Firmware</h3>
-            <p class="blogpost">Pre-compiled release firmware is in the <a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c/releases/latest">Github releases page</a>. You can also download the source and compile it yourself from <a href="https://gitlab.scd31.com/sophie/hair-electrolysis-machine-software">scd31's Gitlab repo</a>.</p>
-            <p class="blogpost">The firmware can be flashed to the device using a USB-C cable. The device will show up as a USB drive when plugged in while holding down the <strong>boot (top) button</strong>. Copy the <code>.uf2</code> file from the Github repo to the drive and it will flash automatically. If you have issues, look up troubleshooting online for flashing <code>.uf2</code> firmware to an RP2040.</p>
-
+            <p class="blogpost">Pre-compiled release firmware is in the <a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c/releases/latest">Github releases page</a>. 
+                You can also download the source and compile it yourself.</p>
+            <p class="blogpost">TODO: STM32 flash instructions</p>
             <h4><a href="ordering.html">Part 1: Parts & Ordering</a> | <a href="electrolysis.html">Return to main page</a> | <a href="usage.html">Part 3: Usage</a></h4>
     </main>
 </body>
