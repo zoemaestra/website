@@ -67,7 +67,19 @@
             <h3>Firmware</h3>
             <p class="blogpost">Pre-compiled release firmware is in the <a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c/releases/latest">Github releases page</a>. 
                 You can also download the source and compile it yourself.</p>
-            <p class="blogpost">TODO: STM32 flash instructions</p>
+            <p class="blogpost">Plug the board into your computer via the USB-C port. It should enter DFU mode automatically if it's the first time it is being flashed, 
+                but if it isn't you can make it enter DFU by holding down the BOOT button and while holding it, briefly pressing RST and then letting go of BOOT.
+            </p>
+            <h4>Mac OS & Linux</h4>
+            <p class="blogpost">Install dfu-util using your package manager of choice. On Mac, use Homebrew: <code>brew install dfu-util</code></p>
+            <p class="blogpost">Then, in the terminal, run: <code>dfu-util -a 0 -s 0x08000000:leave -D firmware.bin</code></p>
+
+            <h4>Windows</h4>
+            <p class="blogpost">Install stm32cubeprogrammer from <a href="https://www.st.com/en/development-tools/stm32cubeprog.html">ST's website</a>. 
+                Open it and in the top right drop down menu set it to USB mode.</p>
+            <p class="blogpost">Then, click Connect. Click the Open file tab and select firmware.bin. Set start address to 0x08000000. Click Download.</p>
+            <p class="blogpost">You can also use Zadig with the WinUSB driver and dfu-util.exe. </p>
+
             <h4><a href="ordering.html">Part 1: Parts & Ordering</a> | <a href="electrolysis.html">Return to main page</a> | <a href="usage.html">Part 3: Usage</a></h4>
     </main>
 </body>
