@@ -44,6 +44,7 @@
             <h3>The BOM</h3>
             <p class="blogpost">You should be presented with the bare board on screen. The tab at the top should say <strong>"PCB"</strong>. Click <strong>Next</strong>.</p>
             <p class="blogpost">You will be put into the Bill of Materials (BOM) tab. Click <strong>"Add BOM File"</strong> and upload <code>bom.csv</code> (which you previously downloaded from the releases section on Github). Then, click <strong>"Add CPL File"</strong> and upload <code>positions.csv</code>.</p>
+            <p class="blogpost">It may give you an error about H1-H5 being missing from the BOM. Ignore this and proceed.</p>
             <p class="blogpost">JLCPCB will present you with a table of parts. The majority, if not all, should be autofilled.</p>
             <p class="blogpost">Check over each one and make sure they have enough stock of each. Some things they might not have enough of - this can be annoying,
                 but you will have to find an alternative part. In most cases, you can just search <a href="https://jlcpcb.com/parts">the parts library</a> for a like-for-like replacement.</p>
@@ -53,11 +54,11 @@
             
             <h3>Component Placement</h3>
             <p class="blogpost">For whatever reason, some parts may sometimes not be oriented correctly and you need to fix that yourself if that is the case.</p>
-            <p class="blogpost">The usual suspects are the two 3.5mm jacks, the type C port, and U1 (STM32). Below is how it should look if nothing is awry:</p>
+            <p class="blogpost">The usual suspects are the jacks, the type C port, rotary encoder and buzzer.</p>
 
             <figure>
-                <img class="responsive-img" src="./pcba.png"
-                    alt="PCBA placement diagram"
+                <img class="responsive-img" src="./corrections.png"
+                    alt="PCBA placement diagram of components that need to have their placements corrected"
                     width="800" height="450"
                     loading="lazy" decoding="async"
                     sizes="(max-width: 600px) 100vw, 800px"
@@ -65,7 +66,29 @@
                 <figcaption></figcaption>
             </figure>
 
+            <p class="blogpost">You will need to move them into the correct positions. Set the view to 2D and check both the top and bottom views to make sure the components are in the right spots.</p>
             <p class="blogpost">Select a part that isn't aligned correctly and use the arrow keys in the top right to align it. View it from the top and bottom to make sure everything is in the right hole.</p>
+
+
+            <figure>
+                <img class="responsive-img" src="./goodboard.png"
+                    alt="PCBA placement diagram of components that have been corrected, top view"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption>Make sure the type C port and 2.5mm jack are on their pads</figcaption>
+            </figure>
+
+            <figure>
+                <img class="responsive-img" src="./checks.png"
+                    alt="PCBA placement diagram of components that have been corrected, bottom view with red circles highlighting places that must be carefully checked"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption>Make sure all the through hole components are actually through their holes</figcaption>
+            </figure>
             <p class="blogpost">All other ICs on the board with a circle on them need to be aligned with the purple circles/white triangles on the PCB, but they typically are by default.</p>
             <p class="blogpost">Once you've verified all is aligned, click <strong>Next</strong>.</p>
 
