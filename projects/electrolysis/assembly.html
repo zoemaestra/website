@@ -57,8 +57,22 @@
             <h3>Soldering the pedal and stylus</h3>
             </figure>
             <p class="blogpost">The D-sub (needle holder for the pen, aka the follicle electrode) should be connected to all the connections on a 3.5mm jack with approx. 1m of wire.</p>
-            <p class="blogpost">If you are building the optional foot pedal, then the <strong>normally open (NO)</strong> terminal of the foot pedal switch should be soldered to the <strong>tip</strong> of the other 3.5mm jack with approx. 1.5m of wire, and the <strong>common (C)</strong> terminal to the <strong>sleeve</strong> of the same jack with the same amount of wire.</p>
-            
+            <p class="blogpost">If you are building the optional foot pedal, then the <strong>normally open (NO)</strong> terminal of the foot pedal switch should be soldered to the 
+                <strong>tip</strong> of the other 3.5mm jack with approx. 1.5m of wire, and the <strong>common (C)</strong> terminal to the <strong>sleeve</strong> 
+                of the same jack with the same amount of wire.
+            </p>
+            <figure>
+                <img class="responsive-img" src="./diagram.png"
+                    alt="A crudely made paint.net diagram showing how to wire the pedal and stylus to the PCB"
+                    width="800" height="450"
+                    loading="lazy" decoding="async"
+                    sizes="(max-width: 600px) 100vw, 800px"
+                    >
+                <figcaption>
+                    It doesn't really matter which way round C (common) and NO (normally open) go, just as long as one goes to the jack's tip 
+                    and the other goes to the sleeve so the switch closes the circuit between the two when pressed down
+                </figcaption>
+            </figure>
             <h3>3D Printing</h3>
             <p class="blogpost">Print the parts in the <a href="https://github.com/zoemaestra/hair-electrolysis-machine-usb-c/tree/main/3dprint">3dprint folder in the repo</a>. The parts are designed to be printed with a layer height of 0.2mm and 20% infill with a 0.4mm nozzle and should not require supports when printed in the provided orientation. PLA is suitable.</p>
             <p class="blogpost">Put the PCB with screen and battery into the main/top piece and secure the bottom piece over it with four M3 screws. If you have no screws, glue is ok.</p>
